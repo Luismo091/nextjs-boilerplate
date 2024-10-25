@@ -28,14 +28,12 @@ export default function ReciboGenerator() {
   const { toast } = useToast()
 
   useEffect(() => {
-    // Fetch recibos from JSON file
     fetch('/api/recibos')
       .then(response => response.json())
       .then(data => setRecibos(data))
   }, [])
 
   const saveRecibos = (newRecibos: Recibo[]) => {
-    // Save recibos to JSON file
     fetch('/api/recibos', {
       method: 'POST',
       headers: {
